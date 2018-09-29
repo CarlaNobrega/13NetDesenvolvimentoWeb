@@ -1,0 +1,25 @@
+﻿@model IEnumerable<FIAP01.Models.Pergunta>
+
+
+<img src="~/ImagemTeste.jpg" />
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>
+            <p>@item.ID</p>
+            <p>@item.Autor</p>
+            <p>@item.Descricao</p>
+        </li>
+    }
+</ul>
+
+
+@*<h1>ViewBag @ViewBag.Nome</h1>
+<h1>VieData @ViewData["NomeDoAluno"]</h1>*@
+
+
+<p> Twitter @@rodolfofadino</p>
+
+@*<p>@Model.Id</p>
+    <p>@Model.Autor</p>
+    <p>@Model.Descricao</p>*@
