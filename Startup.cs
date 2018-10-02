@@ -1,8 +1,10 @@
 ﻿using FIAP01.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using FIAP01.Middleware;
 
 namespace FIAP01
 {
@@ -19,11 +21,29 @@ namespace FIAP01
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            //app.Use((context, next) =>
+            //{
+            //    context.Response.Headers.Add("X-Teste", "headerteste");
+            //    return next();
+            //});
+            //app.Use(async (context, next) =>
+            //{
+            //    var teste = 123;
+            //    await next.Invoke();
+            //    var teste2 = 1234;
+            //});
+
+            //app.Run(async context => {
+            //    await context.Response.WriteAsync("boa noite");
+            //});
+
             app.UseStaticFiles();
 
-           
+
             app.UseDeveloperExceptionPage();
-        
+
+            app.UseMeuLogPreza();
+
 
             app.UseMvc(routes =>
             {
@@ -45,6 +65,6 @@ namespace FIAP01
                     defaults: new { controller = "Topicos", action = "Index" });
             });
 
-        }
+            }
     }
 }
